@@ -1,0 +1,44 @@
+<div ng-include="'tpl/common/header.html'"></div>
+<div class="contentContainer">
+	<div class="list">
+		<ul>
+			<li class="active">新闻资讯</li>
+			<li >通知通告</li>
+			<li >高风险物品及疫情</li>
+		</ul>
+	</div>
+	<section class="rotation">
+		<div class="swiper-container">
+	        <div class="swiper-wrapper">		
+				<div class="swiper-slide">
+					<a href="javascript:;">
+						<img src="res/img/1.jpg" alt="">
+					</a>
+				</div>
+				<div class="swiper-slide">
+					<a href="javascript:;">
+						<img src="res/img/2.jpg" alt="">
+					</a>
+				</div>
+				<div class="swiper-slide">
+					<a href="javascript:;">
+						<img src="res/img/3.jpg" alt="">
+					</a>
+				</div>
+	        </div>
+        	<div class="swiper-pagination"></div>
+    	</div>
+	</section>
+	<section class="infoList">
+		<ul>
+			<li ng-repeat="data in newList.newsList1">
+				<div>
+					<h4 ng-bind="data.newsTitle">标题标题标题标题</h4>
+					<p class="time"><span>2017年4月13日</span></p>
+				</div>
+			</li>
+			
+		</ul>
+	</section>
+</div>
+<div ng-include="'tpl/common/bottom.html'"></div>

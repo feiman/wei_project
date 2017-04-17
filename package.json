@@ -1,0 +1,30 @@
+{
+  "name": "weiproject",
+  "version": "1.0.0",
+  "description": "基于weUI的项目管理系统简版for微信",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/vincent-xw/wei_project.git"
+  },
+  "keywords": [
+    "weiproject"
+  ],
+  "author": "xw",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/vincent-xw/wei_project/issues"
+  },
+  "homepage": "https://github.com/vincent-xw/wei_project#readme",
+  "devDependencies": {
+    "gulp": "^3.9.1",
+    "gulp-clean-css": "^3.0.4",
+    "gulp-ng-annotate": "^2.0.0",
+    "gulp-sourcemaps": "^2.5.1",
+    "gulp-uglify": "^2.1.2",
+    "gulp-webserver": "^0.9.1"
+  }
+}
