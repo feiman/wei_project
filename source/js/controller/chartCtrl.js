@@ -23,13 +23,7 @@ app.controller('chartCtrl',['$scope','$injector',
 			    		$scope.projectStatistics["panel_"+id] = true;
 			    	}
 			    };
-			    $scope.contract = {
-			    	"forcus":false,
-			    	"searchLabel":function(){
-			    		$scope.contract.forcus = !$scope.contract.forcus;
-			    		console.log($scope.contract.forcus);
-			    	}
-			    };
+			    weui.searchBar('#searchBar');
 			    
 			}
 		);

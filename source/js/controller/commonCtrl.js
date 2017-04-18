@@ -1,10 +1,12 @@
-app.controller('commonCtrl',['$scope','$injector',
-	function($scope,$injector){
+app.controller('commonCtrl',['$scope','$injector','$stateProvider',
+	function($scope,$injector,$stateProvider){
 		$injector.invoke(
 			function () {
-				$scope.gotopanel = function(id){
-					window.location.href = "#!"+id;
+				$scope.activeFootBar = function(){
+					console.log($stateProvider.state.url());
+					
 				}
+				
 			}
 		);
 	}
