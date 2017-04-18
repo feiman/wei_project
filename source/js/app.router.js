@@ -3,7 +3,7 @@ app.config(['$stateProvider', '$urlRouterProvider', '$provide','$ocLazyLoadProvi
         app.constant = $provide.constant;
         $urlRouterProvider.otherwise("/task");
         $stateProvider
-        .state('index', {
+        .state('task', {
             url: '/task',
             views: {
                 '': {
@@ -17,6 +17,23 @@ app.config(['$stateProvider', '$urlRouterProvider', '$provide','$ocLazyLoadProvi
                         'css/index.css',
                         'js/controller/indexCtrl.js',
                         'js/service/indexModule.js'
+                        ]);
+                }]
+            }
+        })
+        .state('taskDetail', {
+            url: '/taskDetail',
+            views: {
+                '': {
+                    templateUrl: 'tpl/taskDetail.html',
+                    controller: 'taskDetailCtrl'
+                }
+            },
+            resolve: { 
+                loadMyCtrl: ['$ocLazyLoad', function($ocLazyLoad) {
+                    return $ocLazyLoad.load([
+                        'js/controller/taskDetailCtrl.js',
+                        'js/service/taskDetailModule.js'
                         ]);
                 }]
             }

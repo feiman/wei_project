@@ -1,9 +1,21 @@
 html{
 	font-size: 14px;
+	padding-bottom: 50px;
 }
-.weui-tab{
+.weui-tab_footer{
 	left: 0;
 	bottom: 0;
 	position: fixed;
 	width: 100%;
+}
+.hidden{
+	display: none;
+}
+.page__bd{
+	padding: 0 15px;
+}
+.weui-textarea{
+	padding: 15px;
+	border-top: 1px solid #f0f0f0;
+	border-bottom: 1px solid #f0f0f0;
 }

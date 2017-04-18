@@ -6,7 +6,7 @@ app.controller('suggestCtrl',['$scope','$injector',
 			    suggestLouder.getListinfo().then(function(resp){
 			    	$scope.newList = resp.data;
 			    });
-			    document.title = "任务中心";
+			    document.title = "反馈与意见";
 			}
 		);
 	}

@@ -6,7 +6,7 @@ app.controller('messageCtrl',['$scope','$injector',
 			    messageLouder.getListinfo().then(function(resp){
 			    	$scope.newList = resp.data;
 			    });
-			    document.title = "任务中心";
+			    document.title = "消息";
 			}
 		);
 	}
