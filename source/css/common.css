@@ -19,3 +19,21 @@ html{
 	border-top: 1px solid #f0f0f0;
 	border-bottom: 1px solid #f0f0f0;
 }
+.search{
+    width: 100%;
+}
+.tableContainer{
+	padding: 10px;
+}
+.weui-table{
+	width: 100%;
+	border:1px solid #f0f0f0;
+	border-collapse: collapse;
+}
+.weui-table thead td{
+	text-align: center;
+}
+.weui-table tbody td{
+	text-align: center;
+	border-top:1px solid #f0f0f0;
+}

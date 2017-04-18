@@ -1,2 +1,103 @@
-图表部分继续采用百度echart3
+<div class="weui-tab">
+    <div class="weui-navbar">
+        <div class="weui-navbar__item " ng-class="{'weui-bar__item_on':projectStatistics.panel_1}" ng-click="projectStatistics.switch('1')">
+            项目统计
+        </div>
+        <div class="weui-navbar__item" ng-class="{'weui-bar__item_on':projectStatistics.panel_2}" ng-click="projectStatistics.switch('2')">
+            业务部门
+        </div>
+        <div class="weui-navbar__item" ng-class="{'weui-bar__item_on':projectStatistics.panel_3}" ng-click="projectStatistics.switch('3')">
+            承办部门
+        </div>
+        <div class="weui-navbar__item" ng-class="{'weui-bar__item_on':projectStatistics.panel_4}" ng-click="projectStatistics.switch('4')">
+            合同乙方
+        </div>
+    </div>
+    <div class="weui-tab__panel">
+        <div ng-class="{hidden:!projectStatistics.panel_1}">
+            <div class="weui-cell">
+                <div class="weui-cell__hd"><label class="weui-label">起始</label></div>
+                <div class="weui-cell__bd">
+                    <p ng-bind="projectStatistics.startDate"></p>
+                </div>
+            </div>
+            <div class="weui-cell">
+                <div class="weui-cell__hd"><label class="weui-label">截止</label></div>
+                <div class="weui-cell__bd">
+                    <p ng-bind="projectStatistics.endDate"></p>
+                </div>
+            </div>
+            <div class="weui-cell">
+                <a class="weui-btn weui-btn_primary search" href="javascript:" id="showTooltips">搜索</a>
+            </div>
+            <div class="tableContainer">
+            	<table class="weui-table">
+            		<thead>
+            			<tr>
+            				<td rowspan="2">年度</td>
+            				<td rowspan="2">总立项</td>
+            				<td colspan="2">金关</td>
+            				<td colspan="2">常规</td>
+            			</tr>
+            			<tr>
+            				<td>部署</td>
+            				<td>关级</td>
+            				<td>部署</td>
+            				<td>关级</td>
+            			</tr>
+            		</thead>
+            		<tbody>
+            			<tr>
+            				<td>2017</td>
+            				<td>0</td>
+            				<td>0</td>
+            				<td>0</td>
+            				<td>0</td>
+            				<td>0</td>
+            			</tr>
+            			<tr>
+            				<td>2017</td>
+            				<td>0</td>
+            				<td>0</td>
+            				<td>0</td>
+            				<td>0</td>
+            				<td>0</td>
+            			</tr>
+            			<tr>
+            				<td>2017</td>
+            				<td>0</td>
+            				<td>0</td>
+            				<td>0</td>
+            				<td>0</td>
+            				<td>0</td>
+            			</tr>
+
+            		</tbody>
+            	</table>
+            </div>
+        </div>
+        <div ng-class="{hidden:!projectStatistics.panel_2}">Page 2</div>
+        <div ng-class="{hidden:!projectStatistics.panel_3}">Page 3</div>
+        <div ng-class="{hidden:!projectStatistics.panel_4}">
+        	<div class="page__bd">
+		        <!--<a href="javascript:;" class="weui-btn weui-btn_primary">点击展现searchBar</a>-->
+		        <div class="weui-search-bar" >
+		            <form class="weui-search-bar__form">
+		                <div class="weui-search-bar__box" >
+		                    <i class="weui-icon-search"></i>
+		                    <input type="search" class="weui-search-bar__input" id="searchInput" placeholder="搜索" required="">
+		                    <a href="javascript:" class="weui-icon-clear" ng-click="searchClear()"></a>
+		                </div>
+		                <label class="weui-search-bar__label" ng-class="{'hidden':contract.forcus}" ng-click="contract.searchLabel()">
+		                    <i class="weui-icon-search"></i>
+		                    <span>搜索</span>
+		                </label>
+		            </form>
+		            <a href="javascript:" class="weui-search-bar__cancel-btn" id="searchCancel">取消</a>
+		        </div>
+		        
+		    </div>
+        </div>
+    </div>
+</div>
 <div ng-include="'tpl/common/bottom.html'"></div>
