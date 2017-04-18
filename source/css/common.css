@@ -1,0 +1,9 @@
+html{
+	font-size: 14px;
+}
+.weui-tab{
+	left: 0;
+	bottom: 0;
+	position: fixed;
+	width: 100%;
+}

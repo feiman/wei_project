@@ -21,93 +21,20 @@ app.config(['$stateProvider', '$urlRouterProvider', '$provide','$ocLazyLoadProvi
                 }]
             }
         })
-        .state('newsDetail', {
-            url: '/newsDetail',
+        .state('chart', {
+            url: '/chart',
             views: {
                 '': {
-                    templateUrl: 'tpl/newsDetail.html',
-                    controller: 'newsDetailCtrl'
+                    templateUrl: 'tpl/chart.html',
+                    controller: 'chartCtrl'
                 }
             },
             resolve: { 
                 loadMyCtrl: ['$ocLazyLoad', function($ocLazyLoad) {
                     return $ocLazyLoad.load([
-                        'css/newsDetail.css',
-                        'js/controller/newsDetailCtrl.js',
-                        'js/service/newsDetailModule.js'
-                        ]);
-                }]
-            }
-        })
-        .state('search', {
-            url: '/search',
-            views: {
-                '': {
-                    templateUrl: 'tpl/search.html',
-                    controller: 'searchCtrl'
-                }
-            },
-            resolve: { 
-                loadMyCtrl: ['$ocLazyLoad', function($ocLazyLoad) {
-                    return $ocLazyLoad.load([
-                        'css/search.css',
-                        'js/controller/searchCtrl.js',
-                        'js/service/searchModule.js'
-                        ]);
-                }]
-            }
-        })
-        .state('searchList', {
-            url: '/searchList',
-            views: {
-                '': {
-                    templateUrl: 'tpl/searchList.html',
-                    controller: 'searchListCtrl'
-                }
-            },
-            resolve: { 
-                loadMyCtrl: ['$ocLazyLoad', function($ocLazyLoad) {
-                    return $ocLazyLoad.load([
-                        'css/newsDetail.css',
-                        'css/searchList.css',
-                        'js/controller/searchListCtrl.js',
-                        'js/service/searchListModule.js'
-                        ]);
-                }]
-            }
-        })
-        .state('login', {
-            url: '/login',
-            views: {
-                '': {
-                    templateUrl: 'tpl/login.html',
-                    controller: 'loginCtrl'
-                }
-            },
-            resolve: { 
-                loadMyCtrl: ['$ocLazyLoad', function($ocLazyLoad) {
-                    return $ocLazyLoad.load([
-                        'css/login.css',
-                        'js/controller/loginCtrl.js',
-                        'js/service/loginModule.js'
-                        ]);
-                }]
-            }
-        })
-        .state('myMessage', {
-            url: '/myMessage',
-            views: {
-                '': {
-                    templateUrl: 'tpl/myMessage.html',
-                    controller: 'myMessageCtrl'
-                }
-            },
-            resolve: { 
-                loadMyCtrl: ['$ocLazyLoad', function($ocLazyLoad) {
-                    return $ocLazyLoad.load([
-                        'css/myMessage.css',
-                        'js/controller/myMessageCtrl.js',
-                        'js/service/myMessageModule.js'
+                        'css/chart.css',
+                        'js/controller/chartCtrl.js',
+                        'js/service/chartModule.js'
                         ]);
                 }]
             }

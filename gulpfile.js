@@ -62,7 +62,7 @@ gulp.task('watch',function(){
 });
 
 gulp.task('webserver', function(){
-  gulp.src('./resource')
+  gulp.src('./source')
     .pipe(webserver({
       host: '0.0.0.0',
       livereload: true,

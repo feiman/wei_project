@@ -1,8 +1,8 @@
-app.factory('searchListLouder',function($http){
+app.factory('chartLouder',function($http){
   return {
         'getListinfo':function(){
 
-          var url = '/data/index_list_info.json';
+          var url = 'res/data/getAllNews.json';
 
           return $http.get(url).then(
 

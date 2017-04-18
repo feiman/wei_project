@@ -1,12 +1,12 @@
-app.controller('indexCtrl',['$scope','$injector',
+app.controller('chartCtrl',['$scope','$injector',
 	function($scope,$injector){
 		$injector.invoke(
-			function (indexLouder) {
+			function (chartLouder) {
 				
 			    indexLouder.getListinfo().then(function(resp){
 			    	$scope.newList = resp.data;
 			    });
-			    document.title = "任务中心";
+			    document.title = "统计图表";
 			}
 		);
 	}
