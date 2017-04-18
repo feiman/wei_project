@@ -1,10 +1,10 @@
 app.config(['$stateProvider', '$urlRouterProvider', '$provide','$ocLazyLoadProvider',
     function ($stateProvider, $urlRouterProvider, $provide ,$ocLazyLoadProvider) {
         app.constant = $provide.constant;
-        $urlRouterProvider.otherwise("/404");
+        $urlRouterProvider.otherwise("/task");
         $stateProvider
         .state('index', {
-            url: '/',
+            url: '/task',
             views: {
                 '': {
                     templateUrl: 'tpl/index.html',
@@ -39,14 +39,44 @@ app.config(['$stateProvider', '$urlRouterProvider', '$provide','$ocLazyLoadProvi
                 }]
             }
         })
-        .state('404', {
-            url: '/404',
+        .state('message', {
+            url: '/message',
             views: {
                 '': {
-                    templateUrl: 'tpl/404.html'
+                    templateUrl: 'tpl/message.html',
+                    controller: 'messageCtrl'
                 }
+            },
+            resolve: { 
+                loadMyCtrl: ['$ocLazyLoad', function($ocLazyLoad) {
+                    return $ocLazyLoad.load([
+                        'css/message.css',
+                        'js/controller/messageCtrl.js',
+                        'js/service/messageModule.js'
+                        ]);
+                }]
             }
         })
+        .state('suggest', {
+            url: '/suggest',
+            views: {
+                '': {
+                    templateUrl: 'tpl/suggest.html',
+                    controller: 'suggestCtrl'
+                }
+            },
+            resolve: { 
+                loadMyCtrl: ['$ocLazyLoad', function($ocLazyLoad) {
+                    return $ocLazyLoad.load([
+                        'css/suggest.css',
+                        'js/controller/suggestCtrl.js',
+                        'js/service/suggestModule.js'
+                        ]);
+                }]
+            }
+        })
+        ;
+        
     }])
     // .config(['$locationProvider', function ($locationProvider) {
 
