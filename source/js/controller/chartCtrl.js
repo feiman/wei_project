@@ -25,15 +25,16 @@ app.controller('chartCtrl',['$scope','$injector',
 			    };
 			    $scope.datePicker = function(){
 			    	weui.datePicker({
-						start: new Date(), // 从今天开始
-						end: 2030,
-						cron: '1-10 * *',  // 每月1日-10日
-						onChange: function(result){
-						 console.log(result);
-						},
-						onConfirm: function(result){
-						 console.log(result);
-						}
+						start: 1990,
+					    end: 2000,
+					    defaultValue: [1991, 6, 9],
+					    onChange: function(result){
+					        console.log(result);
+					    },
+					    onConfirm: function(result){
+					        console.log(result);
+					    },
+					    id: 'datePicker'
 					});
 			    }
 			    
