@@ -23,6 +23,20 @@ app.controller('chartCtrl',['$scope','$injector',
 			    		$scope.projectStatistics["panel_"+id] = true;
 			    	}
 			    };
+			    $scope.datePicker = function(){
+			    	weui.datePicker({
+						start: new Date(), // 从今天开始
+						end: 2030,
+						cron: '1-10 * *',  // 每月1日-10日
+						onChange: function(result){
+						 console.log(result);
+						},
+						onConfirm: function(result){
+						 console.log(result);
+						}
+					});
+			    }
+			    
 			    weui.searchBar('#searchBar');
 			    
 			}

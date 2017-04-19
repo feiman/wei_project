@@ -15,13 +15,13 @@
     </div>
     <div class="weui-tab__panel">
         <div ng-class="{hidden:!projectStatistics.panel_1}">
-            <div class="weui-cell">
+            <div class="weui-cell" ng-click="datePicker()">
                 <div class="weui-cell__hd"><label class="weui-label">起始</label></div>
                 <div class="weui-cell__bd">
                     <p ng-bind="projectStatistics.startDate"></p>
                 </div>
             </div>
-            <div class="weui-cell">
+            <div class="weui-cell" ng-click="datePicker()">
                 <div class="weui-cell__hd"><label class="weui-label">截止</label></div>
                 <div class="weui-cell__bd">
                     <p ng-bind="projectStatistics.endDate"></p>
