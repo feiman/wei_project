@@ -22,5 +22,48 @@ app.config(['$controllerProvider', '$compileProvider', '$filterProvider', '$prov
             //events: true
         });
     }])
-    
+    .run(function($location,storageService){
+        var search = $location.search();
+        if(search.userid != "" ){
+            var data = {
+                "userid":search.userid
+            }
+            storageService.setUserInfo(data);
+        }
+    })
+    .factory('sessionInjector', ["storageService",function(storageService) {
+        var sessionInjector = {
+            request: function(config) {
+                var search = storageService.getUserInfo();
+                if(search == -1 || search == {}){
+                    console.log("参数错误");
+                }else{
+                    if(config.url.indexOf("tpl") != -1 || config.url.indexOf("css") != -1 || config.url.indexOf("js") != -1){
+                    
+                    }else{
+                       // config.url ="http://192.168.6.78:8080"+config.url; 
+                       // config.url ="http://192.168.2.102:8080"+config.url; 
+                       config.url ="http://192.168.6.112:9005"+config.url+search.userid; 
+                    }
+                }
+                
+                
+                return config;
+            },
+            response: function(response) {
+                if(response.status != 200){
+                    console.log("http请求失败");
+                    response.data = {};
+                }else{
+                    console.log("http请求成功");
+                    
+                }
+                return response;
+            }
+        };
+        return sessionInjector;
+    }])
+    .config(['$httpProvider', function($httpProvider) {
+        $httpProvider.interceptors.push('sessionInjector');
+    }])
 ;

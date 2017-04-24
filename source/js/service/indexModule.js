@@ -2,7 +2,7 @@ app.factory('indexLouder',function($http){
   return {
         'getListinfo':function(){
 
-          var url = 'res/data/getAllNews.json';
+          var url = '/MobileApi/api/MyTask/';
 
           return $http.get(url).then(
 
