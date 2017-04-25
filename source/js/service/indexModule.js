@@ -1,8 +1,11 @@
-app.factory('indexLouder',function($http){
+app.factory('indexLouder',['transformRequest','$http','$location',function(transformRequest,$http,$location){
   return {
         'getListinfo':function(task){
 
           var url = "";
+
+          var search = $location.search();
+
           if(task == "task" || task == "" || !task){
 
             url = '/MobileApi/api/MyTask/';
@@ -18,7 +21,7 @@ app.factory('indexLouder',function($http){
           }
           
 
-          return $http.get(url).then(
+          return $http.get(url+"?"+transformRequest(search)).then(
 
               function(resp){
 
@@ -32,4 +35,4 @@ app.factory('indexLouder',function($http){
               });
         }
       };
-  });
+}]);

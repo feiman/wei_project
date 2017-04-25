@@ -25,31 +25,32 @@ app.config(['$controllerProvider', '$compileProvider', '$filterProvider', '$prov
     .config(['cfpLoadingBarProvider', function(cfpLoadingBarProvider) {
         cfpLoadingBarProvider.includeBar = false;
     }])
-    .run(function($location,storageService){
-        var search = $location.search();
-        if(search.userid != "" ){
-            var data = {
-                "userid":search.userid
+    .factory('transformRequest',function(){
+        return function (obj) {
+
+            var str = [];
+
+            for(var p in obj){
+
+                str.push(encodeURIComponent(p) + "=" + encodeURIComponent(obj[p]));
+
             }
-            storageService.setUserInfo(data);
-        }
+
+            return str.join("&");
+
+        };
     })
-    .factory('sessionInjector', ["storageService",function(storageService) {
+    .factory('sessionInjector', [function() {
         var sessionInjector = {
             request: function(config) {
-                var search = storageService.getUserInfo();
-                if(search == -1 || search == {}){
-                    console.log("参数错误");
-                }else{
-                    if(config.url.indexOf("tpl") != -1 || config.url.indexOf("css") != -1 || config.url.indexOf("js") != -1){
-                    
-                    }else{
-                       // config.url ="http://192.168.6.78:8080"+config.url; 
-                       // config.url ="http://192.168.2.102:8080"+config.url; 
-                       config.url ="http://192.168.6.112:9005"+config.url+search.userid; 
-                    }
-                }
                 
+                if(config.url.indexOf("tpl") != -1 || config.url.indexOf("css") != -1 || config.url.indexOf("js") != -1){
+                
+                }else{
+                   // config.url ="http://192.168.6.78:8080"+config.url; 
+                   // config.url ="http://192.168.2.102:8080"+config.url; 
+                   config.url ="http://192.168.6.112:9005"+config.url; 
+                }
                 
                 return config;
             },

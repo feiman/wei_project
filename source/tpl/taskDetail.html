@@ -5,12 +5,10 @@
         </div>
         <div class="weui-panel__bd">
             <div class="weui-media-box weui-media-box_text">
-                <h4 class="weui-media-box__title">标题一</h4>
-                <p class="weui-media-box__desc">由各种物质组成的巨型球状天体，叫做星球。星球有一定的形状，有自己的运行轨道。</p>
+                <h4 class="weui-media-box__title" ng-bind="taskInfo.ProjectName"></h4>
+                <p class="weui-media-box__desc" ng-bind="taskInfo.TaskName"></p>
                 <ul class="weui-media-box__info">
-                    <li class="weui-media-box__info__meta">文字来源</li>
-                    <li class="weui-media-box__info__meta">时间</li>
-                    <li class="weui-media-box__info__meta weui-media-box__info__meta_extra">其它信息</li>
+                    <li class="weui-media-box__info__meta">发起人： <span ng-bind="taskInfo.CreaterName"></span> </li>
                 </ul>
             </div>
         </div>
@@ -21,13 +19,7 @@
         </div>
         <div class="weui-panel__bd">
             <div class="weui-media-box weui-media-box_text">
-                <h4 class="weui-media-box__title">标题一</h4>
-                <p class="weui-media-box__desc">由各种物质组成的巨型球状天体，叫做星球。星球有一定的形状，有自己的运行轨道。</p>
-                <ul class="weui-media-box__info">
-                    <li class="weui-media-box__info__meta">文字来源</li>
-                    <li class="weui-media-box__info__meta">时间</li>
-                    <li class="weui-media-box__info__meta weui-media-box__info__meta_extra">其它信息</li>
-                </ul>
+                <h5 class="weui-media-box__desc">当前阶段:<span ng-bind="taskInfo.FinishState?'完成':'未完成'"></span></h5>
             </div>
         </div>
     </div>
@@ -37,29 +29,19 @@
         </div>
         <div class="weui-panel__bd">
             <div class="weui-media-box weui-media-box_text">
-                <h4 class="weui-media-box__title">标题一</h4>
-                <p class="weui-media-box__desc">由各种物质组成的巨型球状天体，叫做星球。星球有一定的形状，有自己的运行轨道。</p>
-                <ul class="weui-media-box__info">
-                    <li class="weui-media-box__info__meta">文字来源</li>
-                    <li class="weui-media-box__info__meta">时间</li>
-                    <li class="weui-media-box__info__meta weui-media-box__info__meta_extra">其它信息</li>
-                </ul>
+                <p class="weui-media-box__desc" ng-repeat="data in taskInfo.Members"></p>
+                <p class="weui-media-box__desc" ng-if="taskInfo.Members.length == 0">暂无成员</p>
+                
             </div>
         </div>
     </div>
     <div class="weui-panel">
         <div class="weui-panel__hd">
-			<h3>流转意见</h3>
+			<h3>流转意见<span class="addSuggest"><a href="javascript:;" ng-click="addSuggest(taskInfo)">新增</a></span></h3>
         </div>
         <div class="weui-panel__bd">
             <div class="weui-media-box weui-media-box_text">
-                <h4 class="weui-media-box__title">标题一</h4>
-                <p class="weui-media-box__desc">由各种物质组成的巨型球状天体，叫做星球。星球有一定的形状，有自己的运行轨道。</p>
-                <ul class="weui-media-box__info">
-                    <li class="weui-media-box__info__meta">文字来源</li>
-                    <li class="weui-media-box__info__meta">时间</li>
-                    <li class="weui-media-box__info__meta weui-media-box__info__meta_extra">其它信息</li>
-                </ul>
+                
             </div>
         </div>
     </div>
@@ -69,13 +51,9 @@
         </div>
         <div class="weui-panel__bd">
             <div class="weui-media-box weui-media-box_text">
-                <h4 class="weui-media-box__title">标题一</h4>
-                <p class="weui-media-box__desc">由各种物质组成的巨型球状天体，叫做星球。星球有一定的形状，有自己的运行轨道。</p>
-                <ul class="weui-media-box__info">
-                    <li class="weui-media-box__info__meta">文字来源</li>
-                    <li class="weui-media-box__info__meta">时间</li>
-                    <li class="weui-media-box__info__meta weui-media-box__info__meta_extra">其它信息</li>
-                </ul>
+                <p class="weui-media-box__desc" ng-repeat="data in taskInfo.taskAttachments"></p>
+                <p class="weui-media-box__desc" ng-if="taskInfo.taskAttachments.length == 0">暂无附件</p>
+                
             </div>
         </div>
     </div>

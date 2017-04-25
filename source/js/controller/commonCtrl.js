@@ -13,7 +13,7 @@ app.controller('commonCtrl',['$scope','$injector','$location',
 					};
 					if(path == "/suggest"){
 						$scope.state.footBar_4 = true;
-					}else if(path == "/task"){
+					}else if(path == "/task" || path == "/taskDetail" ){
 						$scope.state.footBar_1 = true;
 					}else if(path == "/chart"){
 						$scope.state.footBar_2 = true;

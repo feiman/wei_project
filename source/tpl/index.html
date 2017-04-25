@@ -13,7 +13,7 @@
     <div class="weui-tab__panel">
         <div ng-class="{hidden:!indexInfo.panel_1}">
             <div class="weui-cells">
-                <a ng-repeat="data in myTask" class="weui-cell weui-cell_access" href="javascript:;">
+                <a ng-repeat="data in myTask" class="weui-cell weui-cell_access" href="javascript:;" ng-click="toDetail(data)">
                     <div class="weui-cell__bd">
                         <p ng-bind="data.TaskName"></p>
                     </div>
@@ -25,7 +25,7 @@
         </div>
         <div ng-class="{hidden:!indexInfo.panel_2}">
             <div class="weui-cells">
-                <a ng-repeat="data in myToDo" class="weui-cell weui-cell_access" href="javascript:;">
+                <a ng-repeat="data in myToDo" class="weui-cell weui-cell_access" href="javascript:;" ng-click="toDetail(data)">
                     <div class="weui-cell__bd">
                         <p ng-bind="data.TaskName"></p>
                     </div>
@@ -37,7 +37,7 @@
         </div>
         <div ng-class="{hidden:!indexInfo.panel_3}">
             <div class="weui-cells">
-                <a ng-repeat="data in myDone" class="weui-cell weui-cell_access" href="javascript:;">
+                <a ng-repeat="data in myDone" class="weui-cell weui-cell_access" href="javascript:;" ng-click="toDetail(data)">
                     <div class="weui-cell__bd">
                         <p ng-bind="data.TaskName"></p>
                     </div>

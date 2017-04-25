@@ -1,10 +1,12 @@
-app.factory('taskDetailLouder',function($http){
+app.factory('taskDetailLouder',['$http','$location','transformRequest',function($http,$location,transformRequest){
   return {
-        'getListinfo':function(){
+        'getTaskinfo':function(data){
 
-          var url = 'res/data/getAllNews.json';
+          var search = $location.search();
+          
+          var url = '/MobileApi/api/TaskInfo';
 
-          return $http.get(url).then(
+          return $http.get(url+"?"+transformRequest(search)).then(
 
               function(resp){
 
@@ -18,4 +20,4 @@ app.factory('taskDetailLouder',function($http){
               });
         }
       };
-  });
+  }]);
