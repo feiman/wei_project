@@ -7,10 +7,32 @@ app.controller('chartCtrl',['$scope','$injector',
 			    	$scope.newList = resp.data;
 			    });
 			    document.title = "统计图表";
-
+			    $scope.options = [{
+			    	id:"",
+			    	year:"请选择起始时间"
+			    }];
+			    var start = 1980;
+			    for(var i = 0 ; i < 41; i++ ){
+			    	var temp = {
+			    		'id':start,
+			    		'year':start
+			    	}
+			    	$scope.options.push(temp);
+			    	start ++;
+			    }
+			    $scope.tableInfo = [];
+			    $scope.searchTabel = function(){
+			    	var data = {
+			    		"beginYearStr":$scope.projectStatistics.startDate,
+			    		"endYearStr":$scope.projectStatistics.endDate,
+			    	};
+			    	chartLouder.getTableInfo(data).then(function(resp){
+			    		$scope.tableInfo = resp.data;
+			    	});
+			    }
 			    $scope.projectStatistics = {
-			    	"startDate"	:"请选择起始时间",
-			    	"endDate"	:"请选择截止时间",
+			    	"startDate"	:new Date().getFullYear(),
+			    	"endDate"	:new Date().getFullYear(),
 			    	"panel_1":true,
 			    	"panel_2":false,
 			    	"panel_3":false,
@@ -23,20 +45,7 @@ app.controller('chartCtrl',['$scope','$injector',
 			    		$scope.projectStatistics["panel_"+id] = true;
 			    	}
 			    };
-			    $scope.datePicker = function(){
-			    	weui.datePicker({
-						start: 1990,
-					    end: 2000,
-					    defaultValue: [1991, 6, 9],
-					    onChange: function(result){
-					        console.log(result);
-					    },
-					    onConfirm: function(result){
-					        console.log(result);
-					    },
-					    id: 'datePicker'
-					});
-			    }
+			    
 			    
 			    weui.searchBar('#searchBar');
 			    

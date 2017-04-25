@@ -15,20 +15,22 @@
     </div>
     <div class="weui-tab__panel">
         <div ng-class="{hidden:!projectStatistics.panel_1}">
-            <div class="weui-cell" ng-click="datePicker()">
+            <div class="weui-cell">
                 <div class="weui-cell__hd"><label class="weui-label">起始</label></div>
                 <div class="weui-cell__bd">
-                    <p ng-bind="projectStatistics.startDate"></p>
-                </div>
-            </div>
-            <div class="weui-cell" ng-click="datePicker()">
-                <div class="weui-cell__hd"><label class="weui-label">截止</label></div>
-                <div class="weui-cell__bd">
-                    <p ng-bind="projectStatistics.endDate"></p>
+                    <select style="width: 100%;" ng-model="projectStatistics.startDate" ng-options="option.id as option.year for option in options">
+                        
+                    </select>
                 </div>
             </div>
             <div class="weui-cell">
-                <a class="weui-btn weui-btn_primary search" href="javascript:" id="showTooltips">搜索</a>
+                <div class="weui-cell__hd"><label class="weui-label">截止</label></div>
+                <div class="weui-cell__bd">
+                    <select style="width: 100%;" ng-model="projectStatistics.endDate" ng-options="option.id as option.year for option in options"></select>
+                </div>
+            </div>
+            <div class="weui-cell">
+                <a class="weui-btn weui-btn_primary search" href="javascript:" id="showTooltips" ng-click="searchTabel()">搜索</a>
             </div>
             <div class="tableContainer">
             	<table class="weui-table">
@@ -40,37 +42,22 @@
             				<td colspan="2">常规</td>
             			</tr>
             			<tr>
-            				<td>部署</td>
+            				<td>署级</td>
             				<td>关级</td>
-            				<td>部署</td>
+            				<td>署级</td>
             				<td>关级</td>
             			</tr>
             		</thead>
             		<tbody>
-            			<tr>
-            				<td>2017</td>
-            				<td>0</td>
-            				<td>0</td>
-            				<td>0</td>
-            				<td>0</td>
-            				<td>0</td>
+            			<tr ng-repeat="data in tableInfo">
+            				<td ng-bind="data.Year"></td>
+            				<td ng-bind="data.TotalCount"></td>
+            				<td ng-bind="data.GoldenPhaseAdministrationCnt"></td>
+            				<td ng-bind="data.GoldenPhaseCustomhouseCnt"></td>
+            				<td ng-bind="data.FundsPhaseAdministrationCnt"></td>
+            				<td ng-bind="data.FundsPhaseCustomhouseCnt"></td>
             			</tr>
-            			<tr>
-            				<td>2017</td>
-            				<td>0</td>
-            				<td>0</td>
-            				<td>0</td>
-            				<td>0</td>
-            				<td>0</td>
-            			</tr>
-            			<tr>
-            				<td>2017</td>
-            				<td>0</td>
-            				<td>0</td>
-            				<td>0</td>
-            				<td>0</td>
-            				<td>0</td>
-            			</tr>
+            			<tr ng-if="tableInfo.length == 0"><td colspan="6">请点击上面搜索按钮查询结果</td></tr>
 
             		</tbody>
             	</table>

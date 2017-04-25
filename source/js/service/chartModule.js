@@ -1,4 +1,4 @@
-app.factory('chartLouder',function($http){
+app.factory('chartLouder',['$http','transformRequest',function($http,transformRequest){
   return {
         'getListinfo':function(){
 
@@ -16,6 +16,23 @@ app.factory('chartLouder',function($http){
                 return resp;
 
               });
+        },
+        'getTableInfo':function(data){
+
+          var url = '/MobileApi/api/NewCharts/GetProposalCountStatistical';
+
+          return $http.get(url+"?"+transformRequest(data)).then(
+
+              function(resp){
+
+                return resp;
+
+              },
+              function(resp){
+
+                return resp;
+
+              });
         }
       };
-  });
+  }]);
