@@ -1,4 +1,4 @@
-var app = angular.module('app', ['oc.lazyLoad','ui.router']);
+var app = angular.module('app', ['oc.lazyLoad','ui.router','angular-loading-bar']);
 
 
 app.config(['$controllerProvider', '$compileProvider', '$filterProvider', '$provide',
@@ -21,6 +21,9 @@ app.config(['$controllerProvider', '$compileProvider', '$filterProvider', '$prov
             //debug: true,
             //events: true
         });
+    }])
+    .config(['cfpLoadingBarProvider', function(cfpLoadingBarProvider) {
+        cfpLoadingBarProvider.includeBar = false;
     }])
     .run(function($location,storageService){
         var search = $location.search();

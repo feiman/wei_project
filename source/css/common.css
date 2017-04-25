@@ -40,3 +40,9 @@ html{
 .weui-picker{
 	font-size: 16px;
 }
+.navbar{
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+}

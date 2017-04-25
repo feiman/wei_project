@@ -3,8 +3,8 @@ app.controller('indexCtrl',['$scope','$injector',
 		$injector.invoke(
 			function (indexLouder) {
 				
-			    indexLouder.getListinfo().then(function(resp){
-			    	$scope.newList = resp.data;
+			    indexLouder.getListinfo("task").then(function(resp){
+			    	$scope.myTask = resp.data;
 			    });
 
 			    $scope.indexInfo = {
@@ -16,6 +16,19 @@ app.controller('indexCtrl',['$scope','$injector',
 			    		$scope.indexInfo.panel_2 = false;
 			    		$scope.indexInfo.panel_3 = false;
 			    		$scope.indexInfo["panel_"+id] = true;
+			    		if(id == 1){
+			    			indexLouder.getListinfo("task").then(function(resp){
+						    	$scope.myTask = resp.data;
+						    });
+			    		}else if(id == 2){
+			    			indexLouder.getListinfo("todo").then(function(resp){
+						    	$scope.myToDo = resp.data;
+						    });
+			    		}else if(id == 3){
+			    			indexLouder.getListinfo("done").then(function(resp){
+						    	$scope.myDone = resp.data;
+						    });
+			    		}
 			    	}
 			    };
 			    document.title = "任务中心";

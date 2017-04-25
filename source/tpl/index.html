@@ -1,5 +1,5 @@
 <div class="weui-tab">
-    <div class="weui-navbar">
+    <div class="weui-navbar navbar">
         <div class="weui-navbar__item" ng-class="{'weui-bar__item_on':indexInfo.panel_1}" ng-click="indexInfo.switch('1')">
             我负责
         </div>
@@ -13,23 +13,40 @@
     <div class="weui-tab__panel">
         <div ng-class="{hidden:!indexInfo.panel_1}">
             <div class="weui-cells">
-                <a class="weui-cell weui-cell_access" href="javascript:;">
+                <a ng-repeat="data in myTask" class="weui-cell weui-cell_access" href="javascript:;">
                     <div class="weui-cell__bd">
-                        <p>cell standard</p>
+                        <p ng-bind="data.TaskName"></p>
                     </div>
-                    <div class="weui-cell__ft">说明文字</div>
+                    <div class="weui-cell__ft" ng-bind="data.CreateUserName"></div>
                 </a>
-                <a class="weui-cell weui-cell_access" href="javascript:;">
-                    <div class="weui-cell__bd">
-                        <p>cell standard</p>
-                    </div>
-                    <div class="weui-cell__ft">说明文字</div>
-                </a>
+                
 
             </div>
         </div>
-        <div ng-class="{hidden:!indexInfo.panel_2}">Page 2</div>
-        <div ng-class="{hidden:!indexInfo.panel_3}">Page 3</div>
+        <div ng-class="{hidden:!indexInfo.panel_2}">
+            <div class="weui-cells">
+                <a ng-repeat="data in myToDo" class="weui-cell weui-cell_access" href="javascript:;">
+                    <div class="weui-cell__bd">
+                        <p ng-bind="data.TaskName"></p>
+                    </div>
+                    <div class="weui-cell__ft" ng-bind="data.CreateUserName"></div>
+                </a>
+                
+
+            </div>
+        </div>
+        <div ng-class="{hidden:!indexInfo.panel_3}">
+            <div class="weui-cells">
+                <a ng-repeat="data in myDone" class="weui-cell weui-cell_access" href="javascript:;">
+                    <div class="weui-cell__bd">
+                        <p ng-bind="data.TaskName"></p>
+                    </div>
+                    <div class="weui-cell__ft" ng-bind="data.CreateUserName"></div>
+                </a>
+                
+
+            </div>
+        </div>
     </div>
 </div>
 

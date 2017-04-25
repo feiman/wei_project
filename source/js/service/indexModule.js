@@ -1,8 +1,22 @@
 app.factory('indexLouder',function($http){
   return {
-        'getListinfo':function(){
+        'getListinfo':function(task){
 
-          var url = '/MobileApi/api/MyTask/';
+          var url = "";
+          if(task == "task" || task == "" || !task){
+
+            url = '/MobileApi/api/MyTask/';
+
+          }else if(task == "todo"){
+
+            url = '/MobileApi/api/MyToDo/';
+
+          }else if(task == "done"){
+
+            url = '/MobileApi/api/MyDone/';
+
+          }
+          
 
           return $http.get(url).then(
 
