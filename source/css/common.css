@@ -52,7 +52,7 @@ html{
 }
 
 .navBarContainer{
-	width: 80%;
+	width: 90%;
 	margin: 0 auto;
 	box-sizing: border-box;
 	padding: 10px 0;
@@ -75,6 +75,8 @@ html{
 .text-center{
 	text-align: center;
 }
-.test-commit {
-	text-overflow: ellipsis;
+.chart{
+	margin: 0 auto;
+	width: 350px;
+	height: 600px;
 }

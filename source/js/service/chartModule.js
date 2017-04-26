@@ -1,10 +1,11 @@
 app.factory('chartLouder',['$http','transformRequest',function($http,transformRequest){
   return {
-        'getListinfo':function(){
+        'getChartInfo':function(data){
 
-          var url = 'res/data/getAllNews.json';
+          var url = '/MobileApi/api/NewCharts/GetProjectCountStatistical';
 
-          return $http.get(url).then(
+
+          return $http.get(url+"?"+transformRequest(data)).then(
 
               function(resp){
 
@@ -20,6 +21,23 @@ app.factory('chartLouder',['$http','transformRequest',function($http,transformRe
         'getTableInfo':function(data){
 
           var url = '/MobileApi/api/NewCharts/GetProposalCountStatistical';
+
+          return $http.get(url+"?"+transformRequest(data)).then(
+
+              function(resp){
+
+                return resp;
+
+              },
+              function(resp){
+
+                return resp;
+
+              });
+        },
+        'getSearchInfo':function(data){
+
+          var url = '/MobileApi/api/Project/GetProjectsBySubjectOrPartyBName';
 
           return $http.get(url+"?"+transformRequest(data)).then(
 
