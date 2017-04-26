@@ -50,3 +50,28 @@ html{
 	display: inline-block;
 	float: right;
 }
+
+.navBarContainer{
+	width: 80%;
+	margin: 0 auto;
+	box-sizing: border-box;
+	padding: 10px 0;
+}
+.navBarContainer .navBar{
+	float: left;
+	text-align: center;
+	width: 50%;
+	border-bottom: 1px solid #eeeeee;
+	box-sizing: border-box;
+	padding: 10px 0;
+}
+.navBarContainer .active{
+	border-bottom: 1px solid #1aad19;
+	color: #1aad19;
+}
+.clear{
+	clear: both;
+}
+.text-center{
+	text-align: center;
+}

@@ -4,7 +4,7 @@ app.controller('messageCtrl',['$scope','$injector',
 			function (messageLouder) {
 				
 			    messageLouder.getListinfo().then(function(resp){
-			    	$scope.newList = resp.data;
+			    	$scope.messageList = resp.data;
 			    });
 			    document.title = "消息";
 			}

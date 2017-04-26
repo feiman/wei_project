@@ -1,10 +1,12 @@
-app.factory('messageLouder',function($http){
+app.factory('messageLouder',['$http','transformRequest','$location',function($http,transformRequest,$location){
   return {
         'getListinfo':function(){
 
-          var url = 'res/data/getAllNews.json';
+          var search = $location.search();
+          
+          var url = '/MobileApi/api/Notices';
 
-          return $http.get(url).then(
+          return $http.get(url+"?"+transformRequest(search)).then(
 
               function(resp){
 
@@ -18,4 +20,4 @@ app.factory('messageLouder',function($http){
               });
         }
       };
-  });
+  }]);

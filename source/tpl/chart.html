@@ -4,14 +4,12 @@
             项目统计
         </div>
         <div class="weui-navbar__item" ng-class="{'weui-bar__item_on':projectStatistics.panel_2}" ng-click="projectStatistics.switch('2')">
-            业务部门
+            项目进度
         </div>
         <div class="weui-navbar__item" ng-class="{'weui-bar__item_on':projectStatistics.panel_3}" ng-click="projectStatistics.switch('3')">
-            承办部门
-        </div>
-        <div class="weui-navbar__item" ng-class="{'weui-bar__item_on':projectStatistics.panel_4}" ng-click="projectStatistics.switch('4')">
             合同乙方
         </div>
+        
     </div>
     <div class="weui-tab__panel">
         <div ng-class="{hidden:!projectStatistics.panel_1}">
@@ -63,9 +61,17 @@
             	</table>
             </div>
         </div>
-        <div ng-class="{hidden:!projectStatistics.panel_2}">Page 2</div>
-        <div ng-class="{hidden:!projectStatistics.panel_3}">Page 3</div>
-        <div ng-class="{hidden:!projectStatistics.panel_4}">
+        <div ng-class="{hidden:!projectStatistics.panel_2}">
+            <div class="navBarContainer">
+                <div class="navBar active" ng-class="{'active':chart.chart1}" ng-click="chart.switchChart(1)">常规</div>
+                <div class="navBar" ng-class="{'active':chart.chart2}" ng-click="chart.switchChart(2)">金关</div>
+                <div class="clear"></div>
+                <div class="chartContainer">
+                    <h3 class="text-center"><span ng-bind="chart.title"></span>项目进度</h3>
+                </div>
+            </div>
+        </div>
+        <div ng-class="{hidden:!projectStatistics.panel_3}">
         	<div class="page__bd">
 		        <!--<a href="javascript:;" class="weui-btn weui-btn_primary">点击展现searchBar</a>-->
 		        <div class="weui-search-bar" id="searchBar">

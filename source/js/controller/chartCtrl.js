@@ -46,7 +46,21 @@ app.controller('chartCtrl',['$scope','$injector',
 			    	}
 			    };
 			    
-			    
+			    $scope.chart = {
+			    	"title":"常规",
+			    	"chart1":true,
+			    	"chart2":false,
+			    	"switchChart":function(id){
+			    		$scope.chart.chart1 = false;
+			    		$scope.chart.chart2 = false;
+			    		$scope.chart["chart"+id] = true;
+			    		if(id == 1){
+			    			$scope.chart.title = "常规";
+			    		}else{
+			    			$scope.chart.title = "金关";
+			    		}
+			    	}
+			    };
 			    weui.searchBar('#searchBar');
 			    
 			}
