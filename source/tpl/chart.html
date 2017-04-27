@@ -82,7 +82,7 @@
 		            <form class="weui-search-bar__form">
 		                <div class="weui-search-bar__box">
 		                    <i class="weui-icon-search"></i>
-		                    <input type="search" class="weui-search-bar__input" id="searchInput" placeholder="搜索" ng-model="searchStr">
+		                    <input type="search" class="weui-search-bar__input" id="searchInput" placeholder="搜索" ng-enter="loadSearch(true,true)" ng-model="searchStr">
 		                    <a href="javascript:" class="weui-icon-clear" id="searchClear"></a>
 		                </div>
 		                <label class="weui-search-bar__label" id="searchText">
@@ -93,7 +93,7 @@
 		            <a href="javascript:" class="weui-search-bar__cancel-btn" id="searchCancel">取消</a>
 		        </div>
 		        <div class="searchResult">
-                    <div class="result close"  ng-repeat="data in searchInfo" ng-class="{'open':data.animate,'close':!data.animate}" ng-click="toggleAnimate($index)">
+                    <div class="result"  ng-repeat="data in searchInfo" ng-class="{'open':data.animate,'close':!data.animate}" ng-click="toggleAnimate($index)">
                         <div class="content" >
                             <p class="resultInfo">项目名称：&nbsp;<span ng-bind="data.Subject"></span></p>
                             <p class="resultInfo">所属阶段：&nbsp;<span ng-bind="data.StageName"></span></p>
@@ -109,7 +109,7 @@
                     </div>
                     <div class="loadmore">
                         <div class="weui-cell" ng-if="loadMore">
-                            <a class="weui-btn weui-btn_primary search" href="javascript:" ng-click="loadData()">加载下一页</a>
+                            <a class="weui-btn weui-btn_primary search" href="javascript:" ng-click="loadData()" ng-disabled="loading">加载下一页</a>
                         </div>
                     </div>     
                 </div>

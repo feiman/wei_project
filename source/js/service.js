@@ -17,4 +17,5 @@ app.factory("storageService", function() {
         }
     }
 
-});
+})
+;

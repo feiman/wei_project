@@ -115,34 +115,62 @@ app.controller('chartCtrl',['$scope','$injector',
 			    		}
 			    	}
 			    };
-			    $scope.searchData = {
+			    $scope.searchDataPage = {
 			    	"pageNum":1,
 			    	"pageSize":10
 			    }
 			    $scope.loadMore = true;
+			    $scope.loading = false;
 			    $scope.searchInfo = [];
-			    $scope.loadSearch = function(bool){
+
+			    $scope.loadSearch = function(bool,times){
+			    	if(times){
+			    		$scope.searchDataPage.pageNum = 1;
+			    	}
+			    	$scope.searchData = {};
 			    	if(bool){
+			    		$scope.searchData.pageNum = $scope.searchDataPage.pageNum;
+			    		$scope.searchData.pageSize = $scope.searchDataPage.pageSize;
 			    		$scope.searchData.inputStr = $scope.searchStr;
+						console.log(1);
 			    	}else{
+			    		$scope.searchData.pageNum = $scope.searchDataPage.pageNum;
+			    		$scope.searchData.pageSize = $scope.searchDataPage.pageSize;
 			    		$scope.searchData.projectType = "";
 			    		$scope.searchData.projectStage = "";
+			    		console.log(2);
 			    	}
 			    	chartLouder.getSearchInfo($scope.searchData,bool).then(function(resp){
-			    		$scope.searchInfo = resp.data;
+			    		if(bool){
+			    			$scope.searchInfo = {};
+			    			$scope.searchInfo = resp.data;
+			    		}else{
+			    			var temp = [];
+				    		angular.copy($scope.searchInfo,temp);
+				    		$scope.searchInfo = temp.concat(resp.data);
+			    		}
+			    		
+			    		$scope.loading = false;
 			    		for(var i = 0; i < $scope.searchInfo.lenght; i++){
 			    			$scope.searchInfo.animate = false;
 			    		}
-			    		if(resp.data.length == 0){
+			    		if(resp.data.length < 10){
 			    			$scope.loadMore = false;
 			    		}
 			    	});
 			    }
+
 			    $scope.loadSearch(false);
 			    $scope.toggleAnimate = function(index){
 			    	$scope.searchInfo[index].animate = !$scope.searchInfo[index].animate;
 			    }
 		        
+			    $scope.loadData = function(){
+			    	$scope.loading = true;
+			    	$scope.searchDataPage.pageNum += 1;
+			    	var state = ($scope.searchStr || $scope.searchStr == "")?true:false;
+			    	$scope.loadSearch(state);
+			    }
 
 			    weui.searchBar('#searchBar');
 			    
