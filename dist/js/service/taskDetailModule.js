@@ -1,0 +1,1 @@
+app.factory("taskDetailLouder",["$http","$location","transformRequest",function(t,n,r){return{getTaskinfo:function(e){var o=n.search();return t.get("/MobileApi/api/TaskInfo?"+r(o)).then(function(t){return t},function(t){return t})}}}]);

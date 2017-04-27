@@ -1,10 +1,13 @@
-app.factory('suggestLouder',function($http){
+app.factory('suggestLouder',['$http','$location','transformRequest',function($http,$location,transformRequest){
   return {
-        'getListinfo':function(){
+        'submitSuggest':function(data){
 
-          var url = 'res/data/getAllNews.json';
+          var search = $location.search();
+          search.Content = data;
 
-          return $http.get(url).then(
+          var url = '/MobileApi/api/TaskInfo';
+
+          return $http.post(url+"?"+transformRequest(search)).then(
 
               function(resp){
 
@@ -18,4 +21,4 @@ app.factory('suggestLouder',function($http){
               });
         }
       };
-  });
+  }]);

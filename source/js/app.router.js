@@ -74,6 +74,22 @@ app.config(['$stateProvider', '$urlRouterProvider', '$provide','$ocLazyLoadProvi
                 }]
             }
         })
+        .state('messageDetail', {
+            url: '/messageDetail',
+            views: {
+                '': {
+                    templateUrl: 'tpl/messageDetail.html',
+                    controller: 'messageDetailCtrl'
+                }
+            },
+            resolve: { 
+                loadMyCtrl: ['$ocLazyLoad', function($ocLazyLoad) {
+                    return $ocLazyLoad.load([
+                        'js/controller/messageDetailCtrl.js'
+                        ]);
+                }]
+            }
+        })
         .state('suggest', {
             url: '/suggest',
             views: {

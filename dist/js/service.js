@@ -1,0 +1,1 @@
+app.factory("storageService",function(){return{setUserInfo:function(o){return localStorage.Info=JSON.stringify(o),!0},getUserInfo:function(){return void 0===localStorage.Info?-1:JSON.parse(localStorage.Info)},clearInfo:function(){localStorage.removeItem("Info")}}});

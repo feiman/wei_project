@@ -1,0 +1,1 @@
+app.filter("tips",function(){return function(n){return n.length>20&&(n=n.slice(0,20)+"..."),n}});

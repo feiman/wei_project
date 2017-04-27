@@ -82,4 +82,15 @@ app.config(['$controllerProvider', '$compileProvider', '$filterProvider', '$prov
           });
         };
     })
+    .factory('paramService',function(){
+      return {
+        result:[],
+        getResult:function(){
+          return this.result;
+        },
+        setResult:function(res){
+          this.result = res;
+        }
+      };
+    })
 ;

@@ -135,3 +135,12 @@ html{
       height: 60px;
   }
 }
+.getDetail{
+	position: fixed;
+    top: 0;
+    left: 0;
+    overflow: auto;
+    bottom: 10%;
+    right: 0;
+    background: #FFFFFF;
+}

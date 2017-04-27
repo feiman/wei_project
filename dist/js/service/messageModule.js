@@ -1,0 +1,1 @@
+app.factory("messageLouder",["$http","transformRequest","$location",function(t,n,e){return{getListinfo:function(){var r=e.search();return t.get("/MobileApi/api/Notices?"+n(r)).then(function(t){return t},function(t){return t})}}}]);

@@ -4,6 +4,7 @@ app.factory('taskDetailLouder',['$http','$location','transformRequest',function(
 
           var search = $location.search();
           
+          
           var url = '/MobileApi/api/TaskInfo';
 
           return $http.get(url+"?"+transformRequest(search)).then(

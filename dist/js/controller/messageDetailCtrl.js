@@ -1,0 +1,1 @@
+app.controller("messageDetailCtrl",["$scope","$injector","paramService",function(e,a){a.invoke(["paramService",function(a){e.messageDetail=a.getResult(),angular.isArray(e.messageDetail)&&(window.location.href="#!/message"),console.log(e.messageDetail),document.title="消息详情"}])}]);

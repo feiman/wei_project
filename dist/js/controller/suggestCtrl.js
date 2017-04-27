@@ -1,0 +1,1 @@
+app.controller("suggestCtrl",["$scope","$injector",function(t,n){n.invoke(["suggestLouder",function(n){t.confrim=function(){n.submitSuggest(t.suggest).then(function(t){200==t.status?history.go(-1):alert("保存失败")})},document.title="反馈与意见"}])}]);

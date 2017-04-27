@@ -27,21 +27,13 @@ gulp.task('scripts_min', function(){
 gulp.task('move_file_img',function(){
 	console.log("开始移动img");
 	var file = [
-		'source/img/*'
+		'source/images/*'
 	];
-	var des_file = 'dist/img';
+	var des_file = 'dist/images';
 	return gulp.src(file)
 	.pipe(gulp.dest(des_file));
 });
-gulp.task('move_file_font',function(){
-	console.log("开始移动fonts");
-	var file = [
-		'`/fonts/*'
-	];
-	var des_file = 'dist/lib/fonts';
-	return gulp.src(file)
-	.pipe(gulp.dest(des_file));
-});
+
 gulp.task('move_file_tpl',function(){
 	console.log("开始移动tpl");
 	var file = [
@@ -50,6 +42,25 @@ gulp.task('move_file_tpl',function(){
 	var des_file = 'dist/tpl';
 	return gulp.src(file)
 	.pipe(gulp.dest(des_file));
+});
+
+gulp.task('move_file_lib',function(){
+  console.log("开始移动common_lib");
+  var file = [
+    'source/common_lib/**/*',
+  ];
+  var des_file = 'dist/common_lib';
+  return gulp.src(file)
+  .pipe(gulp.dest(des_file));
+});
+gulp.task('move_index',function(){
+  console.log("开始移动common_lib");
+  var file = [
+    'source/index.html',
+  ];
+  var des_file = 'dist/';
+  return gulp.src(file)
+  .pipe(gulp.dest(des_file));
 });
 gulp.task('watch',function(){
   // 不同的文件个性，需要执行不同的任务来处理
@@ -62,7 +73,7 @@ gulp.task('watch',function(){
 });
 
 gulp.task('webserver', function(){
-  gulp.src('./source')
+  gulp.src('./dist')
     .pipe(webserver({
       host: '0.0.0.0',
       livereload: true,
@@ -74,7 +85,7 @@ gulp.task('auto_watch', function(){
     gulp.start( 'webserver','watch');
 });
 
-gulp.task('move_file',['move_file_tpl','move_file_font','move_file_img']);
+gulp.task('move_file',['move_file_tpl','move_file_img','move_file_lib','move_index']);
 
-gulp.task('default', ['minify-css','scripts_min']);
+gulp.task('default', ['minify-css','scripts_min','move_file']);
 // gulp.task('default', ['move_file']);

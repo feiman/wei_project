@@ -1,0 +1,53 @@
+<div class="weui-tab">
+    <div class="weui-navbar navbar">
+        <div class="weui-navbar__item" ng-class="{'weui-bar__item_on':indexInfo.panel_1}" ng-click="indexInfo.switch('1')">
+            我负责
+        </div>
+        <div class="weui-navbar__item" ng-class="{'weui-bar__item_on':indexInfo.panel_2}" ng-click="indexInfo.switch('2')">
+            代办项
+        </div>
+        <div class="weui-navbar__item" ng-class="{'weui-bar__item_on':indexInfo.panel_3}" ng-click="indexInfo.switch('3')">
+            已办项
+        </div>
+    </div>
+    <div class="weui-tab__panel">
+        <div ng-class="{hidden:!indexInfo.panel_1}">
+            <div class="weui-cells">
+                <a ng-repeat="data in myTask" class="weui-cell weui-cell_access" href="javascript:;" ng-click="toDetail(data)">
+                    <div class="weui-cell__bd">
+                        <p ng-bind="data.TaskName"></p>
+                    </div>
+                    <div class="weui-cell__ft" ng-bind="data.CreateUserName"></div>
+                </a>
+                
+
+            </div>
+        </div>
+        <div ng-class="{hidden:!indexInfo.panel_2}">
+            <div class="weui-cells">
+                <a ng-repeat="data in myToDo" class="weui-cell weui-cell_access" href="javascript:;" ng-click="toDetail(data)">
+                    <div class="weui-cell__bd">
+                        <p ng-bind="data.TaskName"></p>
+                    </div>
+                    <div class="weui-cell__ft" ng-bind="data.CreateUserName"></div>
+                </a>
+                
+
+            </div>
+        </div>
+        <div ng-class="{hidden:!indexInfo.panel_3}">
+            <div class="weui-cells">
+                <a ng-repeat="data in myDone" class="weui-cell weui-cell_access" href="javascript:;" ng-click="toDetail(data)">
+                    <div class="weui-cell__bd">
+                        <p ng-bind="data.TaskName"></p>
+                    </div>
+                    <div class="weui-cell__ft" ng-bind="data.CreateUserName"></div>
+                </a>
+                
+
+            </div>
+        </div>
+    </div>
+</div>
+
+<div ng-include="'tpl/common/bottom.html'"></div>

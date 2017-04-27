@@ -10,7 +10,7 @@ app.controller('taskDetailCtrl',['$scope','$injector','$location',
 			    	$scope.taskInfo = resp.data[0];
 			    });
 			    $scope.addSuggest = function(data){
-			    	window.location.href="#!/suggest?userid="+id.userid+"&taskid="+data.TaskId;
+			    	window.location.href="#!/suggest?userid="+id.userid+"&taskid="+id.taskid;
 			    }
 			    document.title = "任务详情";
 			}
