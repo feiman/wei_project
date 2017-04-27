@@ -35,9 +35,14 @@ app.factory('chartLouder',['$http','transformRequest',function($http,transformRe
 
               });
         },
-        'getSearchInfo':function(data){
+        'getSearchInfo':function(data,bool){
 
-          var url = '/MobileApi/api/Project/GetProjectsBySubjectOrPartyBName';
+          if(bool){
+            var url = '/MobileApi/api/Project/GetProjectsBySubjectOrPartyBName';
+          }else{
+            var url = '/MobileApi/api/Project/GetProjectsByProjectTypeAndStage';
+          }
+          
 
           return $http.get(url+"?"+transformRequest(data)).then(
 

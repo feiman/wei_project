@@ -41,6 +41,9 @@ app.controller('chartCtrl',['$scope','$injector',
 			    		$scope.projectStatistics.panel_3 = false;
 			    		$scope.projectStatistics.panel_4 = false;
 			    		$scope.projectStatistics["panel_"+id] = true;
+			    		
+			    			
+			    		
 			    	}
 			    };
 			    $scope.loadChart = function(chart){
@@ -112,9 +115,33 @@ app.controller('chartCtrl',['$scope','$injector',
 			    		}
 			    	}
 			    };
-
-			    
-
+			    $scope.searchData = {
+			    	"pageNum":1,
+			    	"pageSize":10
+			    }
+			    $scope.loadMore = true;
+			    $scope.searchInfo = [];
+			    $scope.loadSearch = function(bool){
+			    	if(bool){
+			    		$scope.searchData.inputStr = $scope.searchStr;
+			    	}else{
+			    		$scope.searchData.projectType = "";
+			    		$scope.searchData.projectStage = "";
+			    	}
+			    	chartLouder.getSearchInfo($scope.searchData,bool).then(function(resp){
+			    		$scope.searchInfo = resp.data;
+			    		for(var i = 0; i < $scope.searchInfo.lenght; i++){
+			    			$scope.searchInfo.animate = false;
+			    		}
+			    		if(resp.data.length == 0){
+			    			$scope.loadMore = false;
+			    		}
+			    	});
+			    }
+			    $scope.loadSearch(false);
+			    $scope.toggleAnimate = function(index){
+			    	$scope.searchInfo[index].animate = !$scope.searchInfo[index].animate;
+			    }
 		        
 
 			    weui.searchBar('#searchBar');

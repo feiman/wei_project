@@ -80,3 +80,58 @@ html{
 	width: 350px;
 	height: 600px;
 }
+.searchResult .result{
+	box-sizing: border-box;
+	padding: 0.8rem;
+	height: 60px;
+	overflow: hidden;
+	position: relative;
+}
+.searchResult .result{
+	border-bottom: 1px solid #eeeeee;
+}
+.searchResult .open{
+	animation: 0.5s open;
+	animation-fill-mode:both;
+}
+.searchResult .open:after{
+	content: "";
+	width:0; 
+	height:0; 
+	border-width: 10px 8px; 
+	border-style:solid; 
+	border-color:#cccccc #ffffff #ffffff #ffffff;
+	position: absolute;
+    top: 23px;
+    right: 25px;
+}
+.searchResult .close{
+	animation: 0.5s close;
+	animation-fill-mode:both;
+}
+.searchResult .close:after{
+	content: "";
+    width: 0;
+    height: 0;
+    border-width: 10px 8px;
+    border-style: solid;
+    border-color:#ffffff #ffffff #cccccc #ffffff;
+    position: absolute;
+    top: 15px;
+    right: 25px;
+}
+
+@keyframes open {
+  from {
+      height: 60px;
+  } to {
+      height: 260px;
+  }
+}
+@keyframes close {
+  from {
+      height: 260px;
+  } to {
+      height: 60px;
+  }
+}
