@@ -14,7 +14,6 @@ app.config(['$stateProvider', '$urlRouterProvider', '$provide','$ocLazyLoadProvi
             resolve: { 
                 loadMyCtrl: ['$ocLazyLoad', function($ocLazyLoad) {
                     return $ocLazyLoad.load([
-                        'css/index.css',
                         'js/controller/indexCtrl.js',
                         'js/service/indexModule.js'
                         ]);
@@ -49,7 +48,6 @@ app.config(['$stateProvider', '$urlRouterProvider', '$provide','$ocLazyLoadProvi
             resolve: { 
                 loadMyCtrl: ['$ocLazyLoad', function($ocLazyLoad) {
                     return $ocLazyLoad.load([
-                        'css/chart.css',
                         'js/controller/chartCtrl.js',
                         'js/service/chartModule.js'
                         ]);
@@ -67,7 +65,6 @@ app.config(['$stateProvider', '$urlRouterProvider', '$provide','$ocLazyLoadProvi
             resolve: { 
                 loadMyCtrl: ['$ocLazyLoad', function($ocLazyLoad) {
                     return $ocLazyLoad.load([
-                        'css/message.css',
                         'js/controller/messageCtrl.js',
                         'js/service/messageModule.js'
                         ]);
@@ -101,7 +98,6 @@ app.config(['$stateProvider', '$urlRouterProvider', '$provide','$ocLazyLoadProvi
             resolve: { 
                 loadMyCtrl: ['$ocLazyLoad', function($ocLazyLoad) {
                     return $ocLazyLoad.load([
-                        'css/suggest.css',
                         'js/controller/suggestCtrl.js',
                         'js/service/suggestModule.js'
                         ]);
